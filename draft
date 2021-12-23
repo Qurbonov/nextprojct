@@ -1,9 +1,9 @@
 const TelegramBot = require("node-telegram-bot-api");
 var emoji = require("node-emoji").emoji;
 var util = require("util");
-require("dotenv").config();
-const token = process.env.token;
-console.log(process.env.token);
+
+const token = "5084352550:AAHOT5sR4IAGxkzslJwAXhEWOuOTBztN73U";
+
 const bot = new TelegramBot(token, {
   polling: true,
   request: {
@@ -60,7 +60,20 @@ bot.onText(/\/start/, (msg) => {
             .then(() => {
               bot.once("contact", (msg) => {
                 ph_number = msg.contact.phone_number;
-
+                // console.log(msg.from.first_name);
+                // console.log(ph_number);
+                //   // bot.sendMessage(
+                //   //   msg.chat.id,
+                //   //   emoji.house_with_garden +
+                //   //     " Assalomu alaykum, " +
+                //   //     msg.from.first_name +
+                //   //     ". Savdoda omad yor bo'lsin ! " +
+                //   //     "  " +
+                //   //     "/tuman tanlang.",
+                //   //   { parse_mode: "HTML" }
+                //   // );
+                // });
+                // bot.onText(/\/tuman/, (msg, match) => {
                 bot.sendMessage(
                   msg.chat.id,
                   emoji.round_pushpin + "Hudud: Toshkent shahar",
@@ -135,8 +148,10 @@ bot.onText(/\/start/, (msg) => {
               });
               let tuman = "";
               bot.on("callback_query", (callbackQuery) => {
+                // var what = "aloqa";
                 tuman = callbackQuery.data;
 
+                // const msg = callbackQuery.message;
                 bot.answerCallbackQuery(callbackQuery.id).then(() =>
                   bot
                     .sendMessage(
