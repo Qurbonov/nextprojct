@@ -25,7 +25,7 @@ bot.on("message", function (message) {
 bot.onText(/^\/start/, (msg) => {
   bot.sendMessage(
     msg.chat.id,
-    emoji.house_with_garden + " Savdoda omad yor bo'lsin UA!"
+    emoji.house_with_garden + " Savdoda omad yor bo'lsin !"
   );
   bot
     .sendMessage(msg.chat.id, "Foydalanuvchi mobil telefon raqami ", option)
