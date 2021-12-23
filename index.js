@@ -3,11 +3,11 @@ var emoji = require("node-emoji").emoji;
 var util = require("util");
 require("dotenv").config();
 const token = process.env.token;
-console.log(process.env.token);
+
 const bot = new TelegramBot(token, {
   polling: true,
   request: {
-    proxy: "http://192.168.7.251:3128 ",
+    proxy: process.env.proxy,
   },
 });
 
